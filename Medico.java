@@ -9,6 +9,7 @@ public class Medico extends Usuario {
     public Medico (String nome, int identificador, String tipos){
         super(nome, identificador, tipos);
     }
+    
     public void addAutorizacao(){
         in = new Scanner(System.in);
         System.out.println("Digite o código da autorização: ");
@@ -27,6 +28,6 @@ public class Medico extends Usuario {
         System.out.println("Digite o identificador do médico: ");
         int identificadorMedico = in.nextInt();
         Autorizacao x = new Autorizacao(codigo, data,exameEscolhido);//adicionar parametros restantes
-
+        System.out.println("Autorização criada com sucesso!");
     }
 }
