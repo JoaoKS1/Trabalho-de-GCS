@@ -5,7 +5,7 @@ public class Autorizacao {
     private int codigo;
 
     private String data;
-    
+
     private int exameEscolhido;
 
     private final String[] exames = {"Raio-X","Colonoscopia","Mamografia","Eletrocardiograma","Hemograma"
@@ -31,8 +31,16 @@ public class Autorizacao {
         return data;
     }
 
-    public String getExame() {
-        return exame;
+    public ArrayList<Autorizacao> getListaAutorizacao() {
+        return listaAutorizacao;
+    }
+
+    public int getExameEscolhido() {
+        return exameEscolhido;
+    }
+
+    public String[] getExames() {
+        return exames;
     }
 
     public String getPaciente() {
