@@ -1,4 +1,7 @@
+import java.util.ArrayList;
 public class Autorizacao {
+
+    ArrayList<Autorizacao> listaAutorizacao = new ArrayList<>();
     private int codigo;
 
     private String data;
