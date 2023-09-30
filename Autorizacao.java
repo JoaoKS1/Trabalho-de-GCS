@@ -6,16 +6,13 @@ public class Autorizacao {
 
     private String data;
 
-    private int exameEscolhido;
-
-    private final String[] exames = {"Raio-X","Colonoscopia","Mamografia","Eletrocardiograma","Hemograma"
-                             ,"Endoscopia","Biópsia","Ressonância Magnética","Exame de Urina","Eletroencefalografia"};
-
+    private String exameEscolhido;
+    
     private Paciente paciente;
 
     private Medico medico;
 
-    public Autorizacao(int codigo, String data, int exameEscolhido, Paciente paciente, Medico medico) {
+    public Autorizacao(int codigo, String data, String exameEscolhido, Paciente paciente, Medico medico) {
         this.codigo = codigo;
         this.data = data;
         this.exameEscolhido = exameEscolhido;
@@ -35,12 +32,8 @@ public class Autorizacao {
         return listaAutorizacao;
     }
 
-    public int getExameEscolhido() {
+    public String getExameEscolhido() {
         return exameEscolhido;
-    }
-
-    public String[] getExames() {
-        return exames;
     }
 
     public String getPaciente() {
