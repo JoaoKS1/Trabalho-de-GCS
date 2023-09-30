@@ -8,11 +8,11 @@ public class Autorizacao {
 
     private String exame;
 
-    private String paciente;
+    private Paciente paciente;
 
     private Medico medico;
 
-    public Autorizacao(int codigo, String data, String exame, String paciente, Medico medico) {
+    public Autorizacao(int codigo, String data, String exame, Paciente paciente, Medico medico) {
         this.codigo = codigo;
         this.data = data;
         this.exame = exame;
