@@ -5,17 +5,20 @@ public class Autorizacao {
     private int codigo;
 
     private String data;
+    
+    private int exameEscolhido;
 
-    private String exame;
+    private final String[] exames = {"Raio-X","Colonoscopia","Mamografia","Eletrocardiograma","Hemograma"
+                             ,"Endoscopia","Biópsia","Ressonância Magnética","Exame de Urina","Eletroencefalografia"};
 
     private Paciente paciente;
 
     private Medico medico;
 
-    public Autorizacao(int codigo, String data, String exame, Paciente paciente, Medico medico) {
+    public Autorizacao(int codigo, String data, int exameEscolhido, Paciente paciente, Medico medico) {
         this.codigo = codigo;
         this.data = data;
-        this.exame = exame;
+        this.exameEscolhido = exameEscolhido;
         this.paciente = paciente;
         this.medico = medico;
     }
