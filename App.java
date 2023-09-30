@@ -1,4 +1,3 @@
-public class App {
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,7 +11,7 @@ public class App {
         in = new Scanner(System.in);
         lista = new ArrayList<Livro>();
     }
-
+    //adicionar mais Médicos,Admins e Pacientes
     public void inicializa() {
         Medico m1 = new Medico("João", "1111", "Cirurgiao");
     }
