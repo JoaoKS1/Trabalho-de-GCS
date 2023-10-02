@@ -3,12 +3,18 @@ public class Usuario {
 
     protected int identificador;
 
+    protected String senha;
+
     protected String tipos;
 
     public Usuario(String nome, int identificador, String tipos) {
         this.nome = nome;
         this.identificador = identificador;
         this.tipos = tipos;
+    }
+
+    public String getSenha() {
+        return senha;
     }
 
     public String getNome() {

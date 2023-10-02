@@ -7,16 +7,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class Paciente {
-    private String nome;
-    private int identificador;
-    private String tipo;
+public class Paciente extends Usuario {
     private List<Autorizacao> autorizacoes_exame;
 
-    public Paciente(String nome, int identificador, String tipo) {
-        this.nome = nome;
-        this.identificador = identificador;
-        this.tipo = tipo;
+    public Paciente(String nome, int identificador, String senha) {
+        super(nome, identificador, senha);
         this.autorizacoes_exame = new ArrayList<>();
     }
 
@@ -38,11 +33,11 @@ public class Paciente {
 
         for (int i = 0; i < autorizacoes_exame.size(); i++) {
             if (dias < dias_2 || dias_2 > dias_2 + 30) {
-                autorizacao.setExame("Operacao Invalida");
+                autorizacao.setExameRealizado(false);
 
             } else {
-                autorizacao.setExame("Exame Realizado");
-                autorizacao.setData_Exame(dataRealizacao);
+                autorizacao.setExameRealizado(true);
+                autorizacao.setData(dataRealizacao);
             }
 
         }
@@ -78,9 +73,17 @@ public class Paciente {
 
         for(int i = 0;i< autorizacoes_exame.size();i++){
            for(int j = 0;j< lista_resultante_String.size();j++){
-               autorizacoes_exame.get(i).setData_Exame(lista_resultante_String.get(j));
+               autorizacoes_exame.get(i).setData(lista_resultante_String.get(j));
            }
        }
         return autorizacoes_exame;
+    }
+
+    public List<Autorizacao> getAutorizacoes_exame() {
+        return autorizacoes_exame;
+    }
+
+    public void setAutorizacoes_exame(List<Autorizacao> autorizacoes_exame) {
+        this.autorizacoes_exame = autorizacoes_exame;
     }
 }

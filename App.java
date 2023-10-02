@@ -29,7 +29,7 @@ public class App {
             switch (opcao) {
 
                 case 1:
-                    Indetificar();
+                    Identificar();
                     break;
                 case 0:
                     break;
@@ -39,7 +39,7 @@ public class App {
         } while (opcao != 0);
     }
 
-    public void Indetificar (){
+    public void Identificar (){
         System.out.println("===================");
         System.out.println("Opcoes:");
         System.out.println("[1] Sou Médico");
@@ -68,9 +68,16 @@ public class App {
                             opcao = in.nextInt();
 
                             switch (opcao) {
-
                                 case 1:
-                                    addUsuario();
+                                    System.out.println("Digite o nome do usuario:");
+                                    nome = in.nextLine();
+                                    System.out.println("Digite o identificador do usuario:");
+                                    int identificador = in.nextInt();
+                                    System.out.println("Digite o tipo do usuario (Medico, Paciente ou Administrador):");
+                                    String tipo = in.nextLine();
+                                    System.out.println("Digite a senha do usuario:");
+                                    senha = in.nextLine();
+                                    adm1.adicionarUsuario(nome,identificador,tipo, senha);
                                     break;
                                 case 2:
                                     listarAutorizacaoAdiministardor();
@@ -86,7 +93,7 @@ public class App {
                         } while (opcao != 0);
                         
                     }
-                    else {System.out.println("Senha nome ou errado");}
+                    else {System.out.println("Senha ou nome errado!");}
                     break;
                 case 1:
                     System.out.println("Digite seu nome:");

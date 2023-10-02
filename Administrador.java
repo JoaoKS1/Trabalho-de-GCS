@@ -3,14 +3,30 @@ import java.util.ArrayList;
 public class Administrador extends Usuario {
     private ArrayList<Usuario> listaUsuarios;
 
-    public Administrador(String nome, int identificador) {
-        super(nome, identificador, "administrador");
+    private String senha;
+
+    public Administrador(String nome, int identificador, String senha) {
+        super(nome, identificador, senha);
         this.listaUsuarios = new ArrayList<>();
     }
 
-    public void adicionarUsuario(String nome, int identificador, String tipos) {
-        Usuario novoUsuario = new Usuario(nome, identificador, tipos);
-        listaUsuarios.add(novoUsuario);
+    public void adicionarUsuario(String nome, int identificador, String tipos, String senha) {
+        tipos = tipos.toLowerCase();
+        switch (tipos) {
+            case "medico" -> {
+                Medico novoMedico = new Medico(nome, identificador, senha);
+                listaUsuarios.add(novoMedico);
+            }
+            case "paciente" -> {
+                Paciente novoPaciente = new Paciente(nome, identificador, senha);
+                listaUsuarios.add(novoPaciente);
+            }
+            case "administrador" -> {
+                Administrador novoAdministrador = new Administrador(nome, identificador, senha);
+                listaUsuarios.add(novoAdministrador);
+            }
+            default -> System.out.println("Tipo de usuário inválido");
+        }
     }
 
     public void buscarUsuarioPorNome(String parteDoNome) {
