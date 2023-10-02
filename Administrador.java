@@ -56,7 +56,7 @@ public class Administrador extends Usuario {
     }
 
     public void listarAutorizacoesPaciente(Paciente paciente) {
-        for (Autorizacao autorizacao : paciente.getListaAutorizacao()) {
+        for (Autorizacao autorizacao : paciente.getAutorizacoes_exame()) {
             System.out.println("Código da Autorização: " + autorizacao.getCodigo());
             System.out.println("Data da Autorização: " + autorizacao.getData());
             System.out.println("Exame Escolhido: " + autorizacao.getExameEscolhido());
@@ -64,7 +64,7 @@ public class Administrador extends Usuario {
             System.out.println("------------------------");
         }
     }
-}
+
 
 
 public void mostrarEstatisticas() {

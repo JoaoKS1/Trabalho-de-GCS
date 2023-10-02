@@ -4,16 +4,24 @@ import java.util.Scanner;
 
 public class App {
 
-    private ArrayList<Exames> lista;
+    private ArrayList<Autorizacao> lista;
+    private int opcao;
+    private String nome;
+    private String senha;
+    private Medico m1;
+    private Administrador adm1;
+    private Paciente p1;
+    private Autorizacao a1;
     private Scanner in;
 
     public App() {
         in = new Scanner(System.in);
-        lista = new ArrayList<Livro>();
-    }
-    //adicionar mais Médicos,Admins e Pacientes
-    public void inicializa() {
-        Medico m1 = new Medico("João", "1111", "Cirurgiao");
+        lista = new ArrayList<Autorizacao>();
+        m1 = new Medico("João", 1111, "1234");
+        adm1 = new Administrador("Maria",2222, "1234");
+        p1 = new Paciente("José", 3333, "1234");
+        a1 = new Autorizacao(1234, "12/12/2020", "Raio-X", p1, m1);
+
     }
 
     public void executa() {
@@ -53,10 +61,10 @@ public class App {
 
                 case 2:
                     System.out.println("Digite seu nome:");
-                    String nome = in.nextLine();
+                    nome = in.nextLine();
                     System.out.println("Digite sua senha:");
-                    String senha = in.nextLine();
-                    if (nome.equals(m1.getNome()) && senha.equals(m1.getCodigo())){
+                    senha = in.nextLine();
+                    if (nome.equals(m1.getNome()) && senha.equals(m1.getSenha())) {
                         do {
                             System.out.println("===================");
                             System.out.println("Opcoes:");
@@ -80,10 +88,12 @@ public class App {
                                     adm1.adicionarUsuario(nome,identificador,tipo, senha);
                                     break;
                                 case 2:
-                                    listarAutorizacaoAdiministardor();
+                                    System.out.println("Digite o nome do usuario:");
+                                    nome = in.nextLine();
+                                    adm1.buscarUsuarioPorNome(nome);
                                     break;
                                 case 3:
-                                    mostrarEstatisticas();
+                                    adm1.mostrarEstatisticas();
                                     break;
                                 case 0:
                                     break;
@@ -97,10 +107,10 @@ public class App {
                     break;
                 case 1:
                     System.out.println("Digite seu nome:");
-                    String nome = in.nextLine();
+                    nome = in.nextLine();
                     System.out.println("Digite sua senha:");
-                    String senha = in.nextLine();
-                    if (nome.equals(m1.getNome()) && senha.equals(m1.getCodigo())){
+                    senha = in.nextLine();
+                    if (nome.equals(m1.getNome()) && senha.equals(m1.getSenha())){
                          do {
                             System.out.println("===================");
                             System.out.println("Opcoes:");
@@ -113,7 +123,7 @@ public class App {
                             switch (opcao) {
 
                                 case 1:
-                                    addAutorizacao();
+                                    m1.addAutorizacao();
                                     break;
                                 case 2:
                                     listarAutorizacao();
@@ -130,10 +140,10 @@ public class App {
                     break;
                 case 3:
                     System.out.println("Digite seu nome:");
-                    String nome = in.nextLine();
+                    nome = in.nextLine();
                     System.out.println("Digite sua senha:");
-                    String senha = in.nextLine();
-                    if (nome.equals(m1.getNome()) && senha.equals(m1.getCodigo())){
+                    senha = in.nextLine();
+                    if (nome.equals(p1.getNome()) && senha.equals(p1.getSenha())){
                          do {
                             System.out.println("===================");
                             System.out.println("Opcoes:");
@@ -146,10 +156,19 @@ public class App {
                             switch (opcao) {
 
                                 case 1:
-                                    addExame();
+                                    System.out.println("Digite a data de realização do exame: ");
+                                    String data = in.nextLine();
+                                    System.out.println("Digite o código da autorização: ");
+                                    int codigo = in.nextInt();
+                                    for (int i = 0; i < lista.size(); i++) {
+                                        if (lista.get(i).getCodigo() == codigo) {
+                                            lista.get(i).setData_Exame(data);
+                                        }
+                                    }
+                                    p1.marcarExameRealizado(a1, data);
                                     break;
                                 case 2:
-                                    listarAutorizacao();
+                                    p1.listarAutorizacoesExame();
                                     break;
                                 case 0:
                                     break;

@@ -5,12 +5,10 @@ public class Usuario {
 
     protected String senha;
 
-    protected String tipos;
-
-    public Usuario(String nome, int identificador, String tipos) {
+    public Usuario(String nome, int identificador, String senha) {
         this.nome = nome;
         this.identificador = identificador;
-        this.tipos = tipos;
+        this.senha = senha;
     }
 
     public String getSenha() {
@@ -25,7 +23,5 @@ public class Usuario {
         return identificador;
     }
 
-    public String getTipos() {
-        return tipos;
-    }
+
 }
